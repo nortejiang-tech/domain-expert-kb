@@ -34,7 +34,7 @@
 **Claude Code / 支持 SKILL.md 的 agent**
 
 ```bash
-git clone <repo-url> ~/.claude/skills/domain-expert-kb
+git clone https://github.com/nortejiang-tech/domain-expert-kb.git ~/.claude/skills/domain-expert-kb
 ```
 
 或从 Releases 下载 `.skill` 包安装。

@@ -1,0 +1,23 @@
+name: Validate
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compile the standalone scripts
+        run: python -m py_compile scripts/paper_search.py scripts/patent_search.py
+      - name: Verify command-line help without network access
+        run: |
+          python scripts/paper_search.py --help
+          python scripts/patent_search.py --help
